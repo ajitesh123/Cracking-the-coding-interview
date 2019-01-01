@@ -1,0 +1,17 @@
+#Permutations without Dups: Write a method to compute all permutations of a string of unique characters. 
+
+def comb(a):
+    if len(a)==1:
+        return [a]
+    else:
+        t=[]
+        for x in comb(a[1:]):
+            t+=[[a[0]]+ x] + [x+[a[0]]]
+        return t
+
+t=['a', 'c', 'b']
+b=comb(t)
+for element in b:
+    m="".join(element)
+    print(m)
+print(b)
