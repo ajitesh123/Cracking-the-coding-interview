@@ -1,0 +1,26 @@
+def subset(set):
+#Just write for base case
+    if len(set)==1:
+        return [set, []]
+#Just write for incremental case
+    if len(set)==2:
+        temp=subset(set[1:])
+        print([temp[0] +[set[0]]])
+        return temp + [temp[0] +[set[0]]] + [temp[1] + [set[0]]]
+
+t=subset([1,2])
+print(t)
+
+#-------------------------------------------------------------
+#Final Solutiom 
+#Generalize for all case 
+def subset(set):
+    if len(set)==1:
+        return [set, []]
+    else:
+        temp=subset(set[1:])
+        return temp + [[set[0]] + x for x in temp]
+
+
+t=subset([1,2,3])
+print(t)
